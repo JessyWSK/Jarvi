@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - auth-service
+      - user-service
+      - vendor-service
+
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "3001:3001"
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "3002:3002"
+
+  vendor-service:
+    build: ./vendor-service
+    ports:
+      - "3003:3003"
